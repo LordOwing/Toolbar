@@ -44,5 +44,35 @@
 
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/action_reset_counter"
+        android:title="Reset licznik"
 
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_small"
+        android:title="Mała czcionka"
+
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_medium"
+        android:title="Średniu czcionka"
+
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_big"
+        android:title="Duża czcionka"
+
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_image"
+        android:title="Pokaż/Ukrj Obrazek"
+        android:checkable="true"
+        android:checked="true"
+        app:showAsAction="never"
+        />
 </menu>

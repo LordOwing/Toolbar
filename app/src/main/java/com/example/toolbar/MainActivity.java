@@ -5,17 +5,24 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private TextView infoText;
     private View lay;
+    private Button add;
+    private int counter = 0;
+    private TextView count_text;
+    private ImageView image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         lay = findViewById(R.id.layout);
         setSupportActionBar(toolbar);
         infoText = findViewById(R.id.infoText);
+        add = findViewById(R.id.add);
+        count_text = findViewById(R.id.counter);
+        image = findViewById(R.id.image);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counter +=1;
+                count_text.setText(Integer.toString(counter));
+            }
+        });
     }
 
     // 1. Metoda tworząca menu na ekranie
@@ -70,6 +87,36 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (id == R.id.action_blue) {
             lay.setBackgroundColor(Color.parseColor("#0000FF"));
+            return true;
+        }
+        else if (id == R.id.action_reset_counter) {
+            counter = 0;
+            count_text.setText(Integer.toString(0));
+            return true;
+        }
+        else if (id == R.id.action_small) {
+            infoText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+
+            return true;
+        }
+        else if (id == R.id.action_medium) {
+            infoText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+
+            return true;
+        }
+        else if (id == R.id.action_big) {
+            infoText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+
+            return true;
+        }
+        else if (id == R.id.action_image) {
+            item.setChecked(!item.isChecked());
+            if (item.isChecked()) {
+                image.setVisibility(View.VISIBLE);
+            } else {
+                image.setVisibility(View.GONE);
+            }
+
             return true;
         }
 
